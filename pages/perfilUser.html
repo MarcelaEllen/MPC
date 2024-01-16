@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Perfil do Usuário</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #12567d;">
+    <div class="container-fluid ">
+
+      <a id="linkPaginaInicial" class="navbar-brand" href="index.html">
+        <img id="logo" src="/assets/logo.png" alt="logo escrito em azul Pró criança">
+      </a>
+
+      <!-- Botão de toggler visível apenas em dispositivos menores que largura de tela grande -->
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item" id="cadastroPerfil">
+            
+          </li>
+          <li class="nav-item">
+            <a href="/pages/sobre.html" class="nav-link text-white text-decoration-underline">Quem somos</a>
+          </li>
+          <li class="nav-item" id="portalDoColaboradorLogado">
+            <a href="loginAdmin.html" class="nav-link text-white text-decoration-underline">Portal do colaborador</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" style="margin-top: 10rem;">
+    <div class="card justify-content-center  mx-auto">
+      <div class="card-header text-center text-white" style="background-color: #12567d;">
+        <h3>Perfil do usuário</h3>
+      </div>
+      <div class="container mt-3 mb-5">
+
+        <img src="/assets/foto-perfil-default.png" class="img-perfil">
+
+        <div id="nomeCompletoPerfil" class="nomeCompletoPerfil"></div>
+
+        <div class="card-body mb-5">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <!-- Primeira coluna -->
+                <div class="form-group mb-3">
+                  <label for="cpfPerfil">CPF:</label>
+                  <input type="text" class="form-control" id="cpfPerfil" disabled="disabled" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="dataNascimentoPerfil">Data de Nascimento:</label>
+                  <input type="text" class="form-control" id="dataNascimentoPerfil" placeholder="DD/MM/AAAA"
+                    disabled="disabled" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="telefonePerfil">Telefone:</label>
+                  <input type="text" class="form-control" id="telefonePerfil" disabled="disabled" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="emailPerfil">E-mail:</label>
+                  <input type="email" class="form-control" id="emailPerfil" disabled="disabled" />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+
+                <!-- Segunda coluna -->
+                <div class="form-group mb-3">
+                  <label for="cidadePerfil">Cidade:</label>
+                  <input type="text" class="form-control" id="cidadePerfil" disabled="disabled" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="bairroPerfil">Bairro:</label>
+                  <input type="text" class="form-control" id="bairroPerfil" disabled="disabled" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="areaInteressePerfil">Área de Interesse:</label>
+                  <input type="text" class="form-control" id="areaInteressePerfil" disabled="disabled" />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="disponibilidadePerfil">Disponibilidade:</label>
+                  <input type="text" class="form-control" id="disponibilidadePerfil" disabled="disabled" />
+                </div>
+              </div>
+
+
+              <div class="text-center d-flex flex-column flex-md-row botoes">
+                <div class="mx-3 mt-2">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditarModal"
+                    id="btnEditar">Editar</button>
+                </div>
+                <div class="mx-3 mt-2">
+                  <button type="button" id="buttonSairPerfil" class="btn btn-danger">Sair</button>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Modal Edição -->
+            <div class="modal mt-5" id="EditarModal" tabindex="-1" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header text-center text-white" style="background-color: #12567d;">
+                    <h5 class="modal-title">
+                      Editar informações de perfil
+                    </h5>
+                    <button type="button" class="btn btn-danger close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+
+
+                    <form>
+                      <div class="row">
+                        <div class="col-md-6 ">
+                          <!-- Primeira coluna -->
+                          <div class="form-group mb-3">
+                            <label for="nomeCompletoEditar">Nome Completo</label>
+                            <input id="nomeCompletoEditar" type="text" class="form-control"
+                              required>
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="cpfEditar">CPF</label>
+                            <input id="cpfEditar" type="text" class="form-control" placeholder="000.000.000-00"
+                              required>
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="dataNascimentoEditar">Data de nascimento:</label>
+                            <input id="dataNascimentoEditar" type="text" class="form-control" placeholder="DD/MM/AAAA"
+                              required>
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="telefoneEditar">Telefone:</label>
+                            <input id="telefoneEditar" type="text" class="form-control" />
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="emailEditar">E-mail:</label>
+                            <input type="email" class="form-control" id="emailEditar" />
+                          </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                          <!-- Segunda coluna -->
+                          <div class="form-group mb-3">
+                            <label for="cidadeEditar">Cidade:</label>
+                            <input type="text" class="form-control" id="cidadeEditar" />
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="bairroEditar">Bairro:</label>
+                            <input type="text" class="form-control" id="bairroEditar" />
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="areaInteresseEditar">Área de Interesse:</label>
+                            <select class="form-control" id="areaInteresseEditar" required>
+                              <option value="" disabled selected>
+                                Selecione uma opção
+                              </option>
+                              <option value="educacao">Educação</option>
+                              <option value="tecnologia">Tecnologia</option>
+                              <option value="artes">Artes</option>
+                              <option value="esportes">Esportes</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="disponibilidadePerfil">Disponibilidade Atual:</label>
+                            <input type="text" class="form-control" id="disponibilidadeEditar" disabled="disabled" />
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label>Atualizar Disponibilidade:</label><br>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" value="Manhã" id="manhaCheckboxEditar"/>
+                              <label class="form-check-label" for="manhaCheckbox">Manhã</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" value="Tarde" id="tardeCheckboxEditar" />
+                              <label class="form-check-label" for="tardeCheckbox">Tarde</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" value="Noite" id="noiteCheckboxEditar" />
+                              <label class="form-check-label" for="noiteCheckbox">Noite</label>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <button type="button" id="buttonSalvarEdicao" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+  <footer class="d-none d-sm-block" style="margin-top: 16rem;">Copyright © 1993 - 2018 Movimento Pró-Criança. CNPJ:
+    02.539.347/0001-32</footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+  <script src="/js/perfilUser.js"></script>
+</body>
+
+</html>
